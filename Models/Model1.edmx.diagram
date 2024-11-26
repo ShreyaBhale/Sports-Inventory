@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0d74b2bf643546869637331b11729b5c" Name="Diagram1">
+        <EntityTypeShape EntityType="SportsInventoryMVCModel.Category" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportsInventoryMVCModel.OrderItem" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportsInventoryMVCModel.procurementOrderItem" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportsInventoryMVCModel.Product" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportsInventoryMVCModel.Role" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportsInventoryMVCModel.Supplier" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportsInventoryMVCModel.SUser" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="SportsInventoryMVCModel.FK__Product__categor__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="SportsInventoryMVCModel.FK__OrderItem__produ__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="SportsInventoryMVCModel.FK__procureme__produ__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="SportsInventoryMVCModel.FK__procureme__suppl__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="SportsInventoryMVCModel.FK__Product__supplie__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="SportsInventoryMVCModel.FK__SUser__roleid__31EC6D26" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SportsInventoryMVCModel.SUsers_New" Width="1.5" PointX="3" PointY="10.125" />
+        <AssociationConnector Association="SportsInventoryMVCModel.FK__SUsers_Ne__rolei__49C3F6B7" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

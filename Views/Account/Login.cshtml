@@ -1,0 +1,23 @@
+﻿@model SportsInventoryMVC.Models.SUsers_New
+
+@using (Html.BeginForm())
+{
+    <h4>Login</h4>
+
+    <div>
+        @Html.LabelFor(m => m.username,"Username")
+        @Html.TextBoxFor(m => m.username)
+        @Html.ValidationMessageFor(m => m.username)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.password,"Password")
+        @Html.PasswordFor(m => m.password)
+        @Html.ValidationMessageFor(m => m.password)
+
+    </div>
+
+    <input type="submit" value="Login" />
+    <!-- Button for login -->
+    @Html.ActionLink("New here? Register.", "Register", "Account", null, new { @class = "btn btn-secondary" })
+}

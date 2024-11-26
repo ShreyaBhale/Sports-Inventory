@@ -1,0 +1,49 @@
+﻿@model SportsInventoryMVC.Models.SUsers_New
+
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.username,"Username", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.username, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model=>model.password,"Password", htmlAttributes: new { @class = "control-label col-md-2" })
+        
+        <div class="col-md-10">
+            @Html.PasswordFor(model=>model.password,new { @class = "form-control" })
+            @Html.ValidationMessageFor(model=>model.password,"", new { @class = "text-danger" })
+            
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model=>model.roleid,"Role", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @* Dropdown for roles *@
+            @Html.DropDownList("roleId", null, "Select Role", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.roleid, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Register" class="btn btn-primary mr-2" />
+
+            <!-- Button for login -->
+            @Html.ActionLink("Already a user? Log in!", "Login", "Account", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
+}

@@ -1,0 +1,64 @@
+﻿@model SportsInventoryMVC.Models.procurementOrderItem
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>procurementOrderItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOforder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOforder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfProducts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfProducts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

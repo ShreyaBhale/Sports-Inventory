@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SportsInventoryMVCModelStoreContainer" CdmEntityContainer="SportsInventoryMVCEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="SportsInventoryMVCModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="SportsInventoryMVCModel.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="noofitems" ColumnName="noofitems" />
+          <ScalarProperty Name="Totalprice" ColumnName="Totalprice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="procurementOrderItems">
+      <EntityTypeMapping TypeName="SportsInventoryMVCModel.procurementOrderItem">
+        <MappingFragment StoreEntitySet="procurementOrderItems">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dateOforder" ColumnName="dateOforder" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+          <ScalarProperty Name="NoOfProducts" ColumnName="NoOfProducts" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="SportsInventoryMVCModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="supplierId" ColumnName="supplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SportsInventoryMVCModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="SportsInventoryMVCModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUsers">
+      <EntityTypeMapping TypeName="SportsInventoryMVCModel.SUser">
+        <MappingFragment StoreEntitySet="SUser">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUsers_New">
+      <EntityTypeMapping TypeName="SportsInventoryMVCModel.SUsers_New">
+        <MappingFragment StoreEntitySet="SUsers_New">
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Employee Menu";
+}
+
+<h2>Admin Menu</h2>
+
+<div style="display: flex; justify-content: space-around; margin-top: 50px;">
+
+    <div style="text-align: center;">
+        <a href="@Url.Action("Index", "Sales")">
+            <img src="~/Images/money.jpg" alt="Sales" style="width: 200px; height: 200px;" />
+        </a>
+        <p>Sales</p>
+    </div>
+
+
+    <div style="text-align: center;">
+        <a href="@Url.Action("Index", "Products")">
+            <img src="~/Images/products.jpg" alt="Products" style="width: 200px; height: 200px;" />
+        </a>
+        <p>Products</p>
+    </div>
+
+</div>
+
+<style>
+    div img {
+        border: 2px solid #000;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+    }
+
+        div img:hover {
+            transform: scale(1.1);
+        }
+</style>

@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SportsInventoryMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="orderid" />
+    </Key>
+    <Property Name="orderid" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" />
+    <Property Name="productId" Type="int" />
+    <Property Name="ProductPrice" Type="float" />
+    <Property Name="noofitems" Type="int" />
+    <Property Name="Totalprice" Type="float" />
+  </EntityType>
+  <EntityType Name="procurementOrderItems">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="dateOforder" Type="date" />
+    <Property Name="productId" Type="int" />
+    <Property Name="supplierId" Type="int" />
+    <Property Name="NoOfProducts" Type="int" />
+    <Property Name="TotalPrice" Type="float" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="30" />
+    <Property Name="description" Type="varchar" MaxLength="50" />
+    <Property Name="price" Type="float" />
+    <Property Name="qty" Type="int" />
+    <Property Name="categoryId" Type="int" />
+    <Property Name="supplierId" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="roleid" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SUser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="100" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
+    <Property Name="roleid" Type="int" />
+  </EntityType>
+  <EntityType Name="SUsers_New">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="100" />
+    <Property Name="password" Type="nvarchar" MaxLength="100" />
+    <Property Name="roleid" Type="int" />
+  </EntityType>
+  <Association Name="FK__OrderItem__produ__34C8D9D1">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__procureme__produ__2C3393D0">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="procurementOrderItems" Type="Self.procurementOrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="procurementOrderItems">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__procureme__suppl__2D27B809">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="procurementOrderItems" Type="Self.procurementOrderItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="procurementOrderItems">
+        <PropertyRef Name="supplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__categor__286302EC">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__supplie__29572725">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="supplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SUser__roleid__31EC6D26">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="SUser" Type="Self.SUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleid" />
+      </Principal>
+      <Dependent Role="SUser">
+        <PropertyRef Name="roleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SUsers_Ne__rolei__49C3F6B7">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="SUsers_New" Type="Self.SUsers_New" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleid" />
+      </Principal>
+      <Dependent Role="SUsers_New">
+        <PropertyRef Name="roleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SportsInventoryMVCModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="procurementOrderItems" EntityType="Self.procurementOrderItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUser" EntityType="Self.SUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUsers_New" EntityType="Self.SUsers_New" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__OrderItem__produ__34C8D9D1" Association="Self.FK__OrderItem__produ__34C8D9D1">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OrderItem" EntitySet="OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__procureme__produ__2C3393D0" Association="Self.FK__procureme__produ__2C3393D0">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="procurementOrderItems" EntitySet="procurementOrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__procureme__suppl__2D27B809" Association="Self.FK__procureme__suppl__2D27B809">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="procurementOrderItems" EntitySet="procurementOrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__categor__286302EC" Association="Self.FK__Product__categor__286302EC">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__supplie__29572725" Association="Self.FK__Product__supplie__29572725">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SUser__roleid__31EC6D26" Association="Self.FK__SUser__roleid__31EC6D26">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="SUser" EntitySet="SUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SUsers_Ne__rolei__49C3F6B7" Association="Self.FK__SUsers_Ne__rolei__49C3F6B7">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="SUsers_New" EntitySet="SUsers_New" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,58 @@
+﻿@model SportsInventoryMVC.Models.procurementOrderItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>procurementOrderItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dateOforder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateOforder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfProducts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfProducts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
